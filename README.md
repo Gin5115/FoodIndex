@@ -60,6 +60,10 @@ Before running this project, ensure you have the following installed:
    # PORT=5000
    # MONGO_URI=mongodb://localhost:27017/foodindex
    # JWT_SECRET=your_super_secret_key
+   # PRICING_UPDATE_INTERVAL=5 # Run price calculation every 5 minutes
+   # CLEANUP_INTERVAL=30 # Run cleanup for expired items every 30 minutes
+   # MIN_PROFIT_MARGIN=0.3 # Minimum allowed price drop percentage (30%)
+   # DEFAULT_AGGRESSIVENESS=5 # 1-10 scale for initial price decay speed
    
    # Seed the database (Optional: Populates Chennai seller locations and dummy products)
    npm run seed
