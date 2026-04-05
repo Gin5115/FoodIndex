@@ -4,7 +4,7 @@ import { Search, SlidersHorizontal, X, MapPin, Loader2 } from 'lucide-react'
 import api from '../lib/api'
 import FoodCard from '../components/FoodCard'
 
-const CATEGORIES = ['all', 'meal', 'bread', 'pastry', 'drink', 'snack', 'other']
+const CATEGORIES = ['all', 'bread', 'pastry', 'drink', 'snack', 'other']
 const SORT_OPTIONS = [
   { value: 'expiry', label: 'Ending soon' },
   { value: 'discount', label: 'Biggest discount' },

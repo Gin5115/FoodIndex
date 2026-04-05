@@ -196,7 +196,7 @@ export default function SellerDashboardPage() {
                     </Field>
                     <Field label="Category">
                       <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className={inputCls}>
-                        {['meal', 'bread', 'pastry', 'drink', 'snack', 'other'].map((c) => (
+                        {['bread', 'pastry', 'drink', 'snack', 'other'].map((c) => (
                           <option key={c} value={c} className="capitalize">{c.charAt(0).toUpperCase() + c.slice(1)}</option>
                         ))}
                       </select>

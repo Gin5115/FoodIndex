@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import bcrypt from 'bcryptjs'
 import User from './models/User.js'
 import Product from './models/Product.js'
 import Order from './models/Order.js'
@@ -36,8 +35,8 @@ const SELLERS = [
     email: 'priya@saffronkitchen.com',
     password: 'password123',
     isSeller: true,
-    businessName: 'Saffron Kitchen',
-    businessType: 'restaurant',
+    businessName: 'Saffron Patisserie',
+    businessType: 'bakery',
     businessAddress: 'Nungambakkam, Chennai',
     phone: '9876500001',
     location: { type: 'Point', coordinates: [80.2417, 13.0569] },
@@ -140,15 +139,15 @@ const makeProducts = (sellerIds) => {
         ]) }
     })(),
 
-    // ── Saffron Kitchen ───────────────────────────────────────────────────────
+    // ── Saffron Patisserie ────────────────────────────────────────────────────
     (() => {
-      // Popular meal: 5 sold in two waves, high demand keeps price from dropping much
+      // Popular item: sold fast in two waves, high demand
       const createdAtMs = ms.ago(3)
       const pickupMs    = ms.h(1)
       const p = {
-        seller: S[1], name: 'Chicken Biryani Box',
-        description: 'Aromatic basmati rice with tender chicken, slow-cooked with whole spices. Served with raita.',
-        category: 'meal', originalPrice: 320,
+        seller: S[1], name: 'Cardamom Buns (6 pack)',
+        description: 'Soft, fluffy buns infused with green cardamom and topped with pearl sugar. Baked fresh this morning.',
+        category: 'pastry', originalPrice: 260,
         stock: 5, initialStock: 10, pickupMs, createdAtMs,
         viewsToday: 95, viewsLastHour: 40, watchersCount: 18,
       }
@@ -164,9 +163,9 @@ const makeProducts = (sellerIds) => {
       const createdAtMs = ms.ago(1)
       const pickupMs    = ms.h(2.5)
       const p = {
-        seller: S[1], name: 'Paneer Butter Masala + Naan',
-        description: 'Creamy tomato-based paneer curry with 2 butter naans. Comfort food at its finest.',
-        category: 'meal', originalPrice: 280,
+        seller: S[1], name: 'Cheese & Herb Focaccia',
+        description: 'Thick Italian flatbread with rosemary, sea salt, and melted cheddar. Crispy base, pillowy centre.',
+        category: 'bread', originalPrice: 240,
         stock: 7, initialStock: 7, pickupMs, createdAtMs,
         viewsToday: 42, viewsLastHour: 15, watchersCount: 6,
       }
@@ -175,13 +174,13 @@ const makeProducts = (sellerIds) => {
     })(),
 
     (() => {
-      // Nearly sold out with massive demand — stock pressure gone, urgency loading
+      // Nearly sold out, high demand — stock pressure gone, urgency kicking in
       const createdAtMs = ms.ago(5)
       const pickupMs    = ms.h(0.5)
       const p = {
-        seller: S[1], name: 'Veg Thali',
-        description: 'Full thali with dal, sabzi, rice, 2 rotis, pickle and papad.',
-        category: 'meal', originalPrice: 200,
+        seller: S[1], name: 'Mixed Berry Tarts (4 pack)',
+        description: 'Buttery shortcrust pastry shells filled with vanilla custard and topped with fresh blueberries and raspberries.',
+        category: 'pastry', originalPrice: 300,
         stock: 3, initialStock: 15, pickupMs, createdAtMs,
         viewsToday: 120, viewsLastHour: 55, watchersCount: 22,
       }
@@ -213,9 +212,9 @@ const makeProducts = (sellerIds) => {
       const createdAtMs = ms.ago(2)
       const pickupMs    = ms.h(1.2)
       const p = {
-        seller: S[2], name: 'Avocado Toast Plate',
-        description: 'Multigrain toast with smashed avocado, cherry tomatoes and everything bagel seasoning.',
-        category: 'meal', originalPrice: 240,
+        seller: S[2], name: 'Banana Walnut Loaf',
+        description: 'Dense, moist banana bread with toasted walnuts and a hint of cinnamon. Sliced to order.',
+        category: 'bread', originalPrice: 190,
         stock: 4, initialStock: 8, pickupMs, createdAtMs,
         viewsToday: 61, viewsLastHour: 25, watchersCount: 11,
       }
@@ -252,10 +251,10 @@ const seed = async () => {
   console.log('Cleared existing data')
 
   const sellerDocs = await Promise.all(
-    SELLERS.map(async (s) => User.create({ ...s, password: await bcrypt.hash(s.password, 10) }))
+    SELLERS.map((s) => User.create(s))
   )
   const buyerDocs = await Promise.all(
-    BUYERS.map(async (b) => User.create({ ...b, password: await bcrypt.hash(b.password, 10) }))
+    BUYERS.map((b) => User.create(b))
   )
   console.log(`Created ${sellerDocs.length} sellers, ${buyerDocs.length} buyers`)
 
