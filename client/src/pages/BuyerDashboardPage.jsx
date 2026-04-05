@@ -33,13 +33,13 @@ export default function BuyerDashboardPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-3 mb-10">
-          <div className="t-card rounded-xl shadow-card p-5">
+          <div className="surface rounded-lg p-5">
             <p className="text-[10px] uppercase tracking-[0.08em] font-medium t-text-4 mb-3">Orders placed</p>
-            <p className="text-4xl font-black t-text-1 tracking-tight">{orders.length}</p>
+            <p className="mono text-4xl font-black t-text-1 tracking-tight">{orders.length}</p>
           </div>
-          <div className="bg-orange-600 rounded-xl p-5">
+          <div className="bg-orange-600 rounded-lg p-5">
             <p className="text-[10px] uppercase tracking-[0.08em] font-medium text-orange-200 mb-3">Total saved</p>
-            <p className="text-4xl font-black text-white tracking-tight">₹{totalSaved}</p>
+            <p className="mono text-4xl font-black text-white tracking-tight">₹{totalSaved}</p>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export default function BuyerDashboardPage() {
             {[...Array(3)].map((_, i) => <div key={i} className="h-24 t-muted rounded-xl animate-pulse" />)}
           </div>
         ) : orders.length === 0 ? (
-          <div className="t-card rounded-xl shadow-card py-20 text-center">
+          <div className="surface rounded-lg py-20 text-center">
             <ShoppingBag size={32} className="mx-auto mb-3 t-text-4 opacity-30" />
             <p className="font-medium t-text-3 mb-1">No orders yet</p>
             <p className="text-sm t-text-4">Go rescue some food from the marketplace</p>
@@ -58,7 +58,7 @@ export default function BuyerDashboardPage() {
         ) : (
           <div className="space-y-2">
             {orders.map((order) => (
-              <div key={order._id} className="t-card rounded-xl shadow-card p-5">
+              <div key={order._id} className="surface rounded-lg p-5">
                 <div className="flex justify-between items-start mb-3">
                   <div className="flex items-center gap-1.5 text-xs t-text-4">
                     <Clock size={11} />
@@ -70,7 +70,7 @@ export default function BuyerDashboardPage() {
                         saved ₹{order.savingsAmount}
                       </span>
                     )}
-                    <span className="text-sm font-bold t-text-1">₹{order.total}</span>
+                    <span className="mono text-sm font-bold t-text-1">₹{order.total}</span>
                     <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-md capitalize ${STATUS_STYLES[order.status]}`}>
                       {order.status}
                     </span>

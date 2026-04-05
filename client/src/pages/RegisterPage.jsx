@@ -44,7 +44,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen t-bg flex">
       {/* Left panel */}
-      <div className="hidden lg:flex flex-col justify-between w-[42%] bg-[#111111] p-12">
+      <div className="hidden lg:flex flex-col justify-between w-[42%] bg-[#08090a] p-12">
         <Link to="/" className="text-[15px] font-bold text-white tracking-tight">
           Food<span className="text-orange-500">Index</span>
         </Link>
@@ -129,7 +129,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-full font-medium text-sm transition-colors disabled:opacity-50 mt-1"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-md font-medium text-sm transition-colors disabled:opacity-50 mt-1"
             >
               {loading ? 'Creating account...' : 'Create account'}
             </button>

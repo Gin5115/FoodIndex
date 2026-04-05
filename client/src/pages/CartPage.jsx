@@ -68,7 +68,7 @@ export default function CartPage() {
           <p className="t-text-4 text-sm mb-6">Looks like you haven't added anything yet.</p>
           <Link
             to="/marketplace"
-            className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2.5 rounded-md text-sm font-medium transition-colors"
           >
             Browse marketplace <ArrowRight size={14} />
           </Link>
@@ -134,7 +134,7 @@ export default function CartPage() {
               return (
                 <div
                   key={item._id}
-                  className={`t-card rounded-xl shadow-card p-4 flex gap-4 items-center ${expired ? 'opacity-60' : ''}`}
+                  className={`surface p-4 flex gap-4 items-center ${expired ? 'opacity-60' : ''}`}
                 >
                   <div className="w-14 h-14 rounded-lg t-muted flex-shrink-0 overflow-hidden">
                     {item.image
@@ -146,8 +146,8 @@ export default function CartPage() {
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold t-text-1 truncate text-sm">{item.name}</p>
                     <div className="flex items-center gap-1.5 mt-0.5">
-                      <span className="text-sm font-bold t-text-1">₹{item.currentPrice}</span>
-                      <span className="text-xs t-text-4 line-through">₹{item.originalPrice}</span>
+                      <span className="mono text-sm font-bold t-text-1">₹{item.currentPrice}</span>
+                      <span className="mono text-xs t-text-4 line-through">₹{item.originalPrice}</span>
                       {changed && (
                         <span className="text-[10px] font-medium text-amber-600 dark:text-amber-400">
                           was ₹{changed.old}
@@ -175,7 +175,7 @@ export default function CartPage() {
                     </button>
                   </div>
 
-                  <p className="font-bold t-text-1 w-16 text-right text-sm">
+                  <p className="mono font-bold t-text-1 w-16 text-right text-sm">
                     ₹{item.currentPrice * item.qty}
                   </p>
 
@@ -192,29 +192,29 @@ export default function CartPage() {
 
           {/* Summary */}
           <div className="lg:col-span-1">
-            <div className="t-card rounded-xl shadow-card p-5 sticky top-20">
+            <div className="surface p-5 sticky top-20">
               <h2 className="font-semibold t-text-1 mb-4 text-sm">Order summary</h2>
 
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm t-text-4">
                   <span>Original</span>
-                  <span className="line-through">₹{originalTotal}</span>
+                  <span className="mono line-through">₹{originalTotal}</span>
                 </div>
                 <div className="flex justify-between text-sm font-medium text-orange-600">
                   <span className="flex items-center gap-1"><Tag size={11} /> You save</span>
-                  <span>−₹{savings}</span>
+                  <span className="mono">−₹{savings}</span>
                 </div>
               </div>
 
               <div className="flex justify-between font-bold t-text-1 text-base border-t border-[var(--border)] pt-3 mb-5">
                 <span>Total</span>
-                <span>₹{total}</span>
+                <span className="mono">₹{total}</span>
               </div>
 
               <button
                 onClick={() => checkout()}
                 disabled={isPending || expiredItems.length > 0}
-                className="w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full font-medium text-sm transition-colors disabled:opacity-40"
+                className="w-full flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-md font-medium text-sm transition-colors disabled:opacity-40"
               >
                 {isPending ? 'Placing order...' : <>Place order <ArrowRight size={13} /></>}
               </button>

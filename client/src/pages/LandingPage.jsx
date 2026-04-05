@@ -54,13 +54,13 @@ export default function LandingPage() {
           <div className="flex gap-3 flex-wrap">
             <Link
               to="/marketplace"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-medium text-sm transition-colors"
+              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-medium text-sm transition-colors"
             >
               Browse deals <ArrowRight size={15} />
             </Link>
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 t-card t-text-2 px-6 py-3 rounded-full font-medium text-sm transition-colors shadow-card hover:shadow-raised border border-[var(--border)]"
+              className="inline-flex items-center gap-2 surface t-text-2 px-6 py-3 rounded-md font-medium text-sm transition-colors hover:shadow-raised"
             >
               List your food
             </Link>
@@ -75,7 +75,7 @@ export default function LandingPage() {
             { value: '0', label: 'Food wasted' },
           ].map(({ value, label }) => (
             <div key={label}>
-              <p className="text-3xl font-black t-text-1 tracking-tight">{value}</p>
+              <p className="mono text-3xl font-black t-text-1 tracking-tight">{value}</p>
               <p className="text-sm t-text-4 mt-0.5">{label}</p>
             </div>
           ))}
@@ -127,7 +127,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Pricing section — always dark ── */}
-      <section className="bg-[#111111] py-24 px-5">
+      <section className="bg-[#08090a] py-24 px-5">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
             <p className="text-xs font-semibold text-orange-500 uppercase tracking-[0.1em] mb-4">
@@ -159,15 +159,15 @@ export default function LandingPage() {
           </div>
 
           {/* Price timeline */}
-          <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A]">
+          <div className="bg-[#0e0f11] rounded-lg p-6 border border-[rgba(255,255,255,0.07)]">
             <p className="text-xs text-[#555] uppercase tracking-widest mb-1">Example</p>
             <p className="text-sm font-medium text-white mb-6">Sourdough Loaf — Original ₹200</p>
             <div className="space-y-2">
               {PRICE_TIMELINE.map((row, i) => (
                 <div
                   key={i}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 transition-colors ${
-                    row.active ? 'bg-orange-600' : 'bg-[#222]'
+                  className={`flex items-center justify-between rounded-md px-4 py-3 transition-colors ${
+                    row.active ? 'bg-orange-600' : 'bg-[rgba(255,255,255,0.04)]'
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -177,7 +177,7 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <div className="flex items-baseline gap-2">
-                    <span className={`font-bold ${row.active ? 'text-white text-lg' : 'text-[#555]'}`}>
+                    <span className={`mono font-bold ${row.active ? 'text-white text-lg' : 'text-[#555]'}`}>
                       ₹{row.price}
                     </span>
                     {row.active && (
@@ -231,13 +231,13 @@ export default function LandingPage() {
           <div className="flex gap-3 shrink-0">
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-medium text-sm transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-medium text-sm transition-colors whitespace-nowrap"
             >
               Get started free
             </Link>
             <Link
               to="/marketplace"
-              className="inline-flex items-center gap-2 t-card border border-[var(--border)] t-text-2 px-6 py-3 rounded-full font-medium text-sm transition-colors shadow-card hover:shadow-raised whitespace-nowrap"
+              className="inline-flex items-center gap-2 surface t-text-2 px-6 py-3 rounded-md font-medium text-sm transition-colors hover:shadow-raised whitespace-nowrap"
             >
               Browse deals
             </Link>

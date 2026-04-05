@@ -99,13 +99,13 @@ export default function ProductDetailPage() {
 
             {/* Demand signals */}
             <div className="flex gap-3">
-              <div className="flex-1 t-card rounded-xl shadow-card px-4 py-3">
+              <div className="flex-1 surface px-4 py-3">
                 <p className="text-[10px] uppercase tracking-widest t-text-4 mb-0.5">Views today</p>
-                <p className="text-lg font-bold t-text-1">{product.viewsToday}</p>
+                <p className="mono text-lg font-semibold t-text-1">{product.viewsToday}</p>
               </div>
-              <div className="flex-1 t-card rounded-xl shadow-card px-4 py-3">
+              <div className="flex-1 surface px-4 py-3">
                 <p className="text-[10px] uppercase tracking-widest t-text-4 mb-0.5">Watching</p>
-                <p className="text-lg font-bold t-text-1">{product.watchersCount}</p>
+                <p className="mono text-lg font-semibold t-text-1">{product.watchersCount}</p>
               </div>
             </div>
 
@@ -132,11 +132,11 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Live price */}
-            <div className="t-card rounded-xl shadow-card p-5">
+            <div className="surface p-5">
               <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-orange-600 mb-3">Live price</p>
               <div className="flex items-baseline gap-3 mb-2">
-                <span className="text-5xl font-black t-text-1 tracking-tight">₹{product.currentPrice}</span>
-                <span className="text-lg t-text-4 line-through">₹{product.originalPrice}</span>
+                <span className="mono text-5xl font-black t-text-1 tracking-tight">₹{product.currentPrice}</span>
+                <span className="mono text-lg t-text-4 line-through">₹{product.originalPrice}</span>
                 <span className="bg-orange-100 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400 text-xs font-semibold px-2 py-0.5 rounded-md">
                   -{product.discountPercent}% off
                 </span>
@@ -146,20 +146,20 @@ export default function ProductDetailPage() {
 
             {/* Time + stock + location */}
             <div className="grid grid-cols-2 gap-2">
-              <div className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium ${
+              <div className={`flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium ${
                 urgency ? 'bg-red-50 dark:bg-red-950/40 text-red-600' : 't-muted t-text-3'
               }`}>
                 <Clock size={13} />
-                {urgency ? `${minutesLeft}m left` : `${Math.round(minutesLeft / 60)}h left`}
+                <span className="mono">{urgency ? `${minutesLeft}m left` : `${Math.round(minutesLeft / 60)}h left`}</span>
               </div>
-              <div className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium t-muted t-text-3">
+              <div className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium t-muted t-text-3">
                 <Package size={13} />
-                {product.stock} remaining
+                <span className="mono">{product.stock} remaining</span>
               </div>
             </div>
 
             {product.seller?.businessAddress && (
-              <div className="flex items-start gap-2 text-sm t-text-3 t-card rounded-lg shadow-card px-4 py-3">
+              <div className="flex items-start gap-2 text-sm t-text-3 surface px-4 py-3">
                 <MapPin size={13} className="mt-0.5 text-orange-600 shrink-0" />
                 <span>{product.seller.businessAddress}</span>
               </div>
@@ -175,6 +175,7 @@ export default function ProductDetailPage() {
                     ? 'border-orange-200 dark:border-orange-900 bg-orange-50 dark:bg-orange-950/30 text-orange-600 cursor-default'
                     : 'border-[var(--border)] t-text-3 hover:border-orange-500/40 hover:text-orange-600'
                 }`}
+                style={{ borderRadius: '6px' }}
               >
                 <Eye size={14} />
                 {watched ? 'Watching — price updated' : watching ? 'Watching...' : 'Watch this deal'}
@@ -186,7 +187,7 @@ export default function ProductDetailPage() {
               <button
                 onClick={handleAddToCart}
                 disabled={soldOut}
-                className="flex items-center justify-center gap-2 w-full bg-orange-600 hover:bg-orange-700 disabled:bg-[var(--bg-muted)] disabled:t-text-4 text-white py-3 rounded-full font-medium transition-colors"
+                className="flex items-center justify-center gap-2 w-full bg-orange-600 hover:bg-orange-700 disabled:bg-[var(--bg-muted)] disabled:t-text-4 text-white py-3 rounded-md font-medium transition-colors"
               >
                 <ShoppingBag size={15} />
                 {soldOut ? 'Sold out' : 'Add to cart'}

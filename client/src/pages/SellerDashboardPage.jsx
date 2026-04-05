@@ -140,11 +140,11 @@ export default function SellerDashboardPage() {
             { label: 'Orders received', value: orders.length },
             { label: 'Total revenue', value: `₹${totalRevenue}`, accent: true },
           ].map(({ label, value, accent }) => (
-            <div key={label} className={`rounded-xl p-5 ${accent ? 'bg-orange-600' : 't-card shadow-card'}`}>
+            <div key={label} className={`rounded-lg p-5 ${accent ? 'bg-orange-600' : 'surface'}`}>
               <p className={`text-[10px] uppercase tracking-[0.08em] font-medium mb-3 ${accent ? 'text-orange-200' : 't-text-4'}`}>
                 {label}
               </p>
-              <p className={`text-3xl font-black tracking-tight ${accent ? 'text-white' : 't-text-1'}`}>{value}</p>
+              <p className={`mono text-3xl font-black tracking-tight ${accent ? 'text-white' : 't-text-1'}`}>{value}</p>
             </div>
           ))}
         </div>
@@ -185,7 +185,7 @@ export default function SellerDashboardPage() {
 
             {/* Add form */}
             {showForm && (
-              <div className="t-card rounded-2xl border t-border p-6 mb-6">
+              <div className="surface rounded-lg p-6 mb-6">
                 <h3 className="font-semibold t-text-1 mb-5">New listing</h3>
                 {formError && <p className="text-red-500 text-sm mb-4">{formError}</p>}
                 <form onSubmit={handleSubmit}>
@@ -259,13 +259,13 @@ export default function SellerDashboardPage() {
                 {[...Array(3)].map((_, i) => <div key={i} className="h-14 t-muted rounded-xl animate-pulse" />)}
               </div>
             ) : products.length === 0 ? (
-              <div className="t-card rounded-2xl border t-border py-20 text-center t-text-4">
+              <div className="surface rounded-lg py-20 text-center t-text-4">
                 <Package size={36} className="mx-auto mb-3 opacity-30" />
                 <p className="font-medium t-text-3">No listings yet</p>
                 <p className="text-sm mt-1">Add your first item above</p>
               </div>
             ) : (
-              <div className="t-card rounded-2xl border t-border overflow-hidden">
+              <div className="surface rounded-lg overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="border-b t-border">
                     <tr className="text-left text-xs font-semibold t-text-4 uppercase tracking-wide">
@@ -293,7 +293,7 @@ export default function SellerDashboardPage() {
                             </div>
                           </td>
                           <td className="px-5 py-3.5 t-text-4 line-through text-sm">₹{p.originalPrice}</td>
-                          <td className="px-5 py-3.5 font-bold text-orange-600 text-sm">₹{p.currentPrice}</td>
+                          <td className="px-5 py-3.5 mono font-bold text-orange-600 text-sm">₹{p.currentPrice}</td>
                           <td className="px-5 py-3.5 t-text-3 text-sm">
                             {isEditing ? (
                               <input
@@ -373,14 +373,14 @@ export default function SellerDashboardPage() {
                 {[...Array(3)].map((_, i) => <div key={i} className="h-24 t-muted rounded-2xl animate-pulse" />)}
               </div>
             ) : orders.length === 0 ? (
-              <div className="t-card rounded-2xl border t-border py-20 text-center t-text-4">
+              <div className="surface rounded-lg py-20 text-center t-text-4">
                 <ClipboardList size={36} className="mx-auto mb-3 opacity-30" />
                 <p className="font-medium t-text-3">No orders yet</p>
               </div>
             ) : (
               <div className="space-y-3">
                 {orders.map((order) => (
-                  <div key={order._id} className="t-card rounded-2xl border t-border p-5">
+                  <div key={order._id} className="surface rounded-lg p-5">
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <p className="font-semibold t-text-1">{order.buyer?.name}</p>
@@ -390,7 +390,7 @@ export default function SellerDashboardPage() {
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold t-text-1 mb-1.5">₹{order.total}</p>
+                        <p className="mono font-bold t-text-1 mb-1.5">₹{order.total}</p>
                         <select
                           value={order.status}
                           onChange={(e) => updateStatus({ id: order._id, status: e.target.value })}
