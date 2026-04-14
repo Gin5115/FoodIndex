@@ -19,7 +19,7 @@ export default function RegisterPage() {
   const [isSeller, setIsSeller] = useState(false)
   const [form, setForm] = useState({
     name: '', email: '', password: '',
-    businessName: '', businessType: 'restaurant', businessAddress: '', phone: '',
+    businessName: '', businessType: 'bakery', businessAddress: '', phone: '',
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -44,16 +44,16 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen t-bg flex">
       {/* Left panel */}
-      <div className="hidden lg:flex flex-col justify-between w-[42%] bg-[#111111] p-12">
+      <div className="hidden lg:flex flex-col justify-between w-[42%] bg-[#08090a] p-12">
         <Link to="/" className="text-[15px] font-bold text-white tracking-tight">
           Food<span className="text-orange-500">Index</span>
         </Link>
         <div>
           <p className="text-4xl font-black text-white leading-tight tracking-tight mb-4">
-            Join the<br />food rescue.
+            Join the<br />bakery rescue.
           </p>
           <p className="text-[#666] text-sm leading-relaxed">
-            Whether you're buying discounted meals or listing surplus food — FoodIndex connects you.
+            Whether you're buying end-of-day baked goods or listing surplus from your bakery — FoodIndex connects you.
           </p>
         </div>
         <p className="text-[#333] text-xs">MACSE640 · Full Stack Development</p>
@@ -115,7 +115,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     className={inputCls}
                   >
-                    {['restaurant', 'cafe', 'bakery', 'other'].map((t) => (
+                    {['bakery', 'cafe', 'other'].map((t) => (
                       <option key={t} value={t} className="capitalize">{t.charAt(0).toUpperCase() + t.slice(1)}</option>
                     ))}
                   </select>
@@ -129,7 +129,7 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-full font-medium text-sm transition-colors disabled:opacity-50 mt-1"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-md font-medium text-sm transition-colors disabled:opacity-50 mt-1"
             >
               {loading ? 'Creating account...' : 'Create account'}
             </button>

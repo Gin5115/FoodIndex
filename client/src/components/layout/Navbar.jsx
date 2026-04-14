@@ -74,7 +74,7 @@ export default function Navbar() {
               </Link>
               <Link
                 to="/register"
-                className="text-sm font-medium bg-orange-600 hover:bg-orange-700 text-white px-4 py-1.5 rounded-full transition-colors"
+                className="text-sm font-medium bg-orange-600 hover:bg-orange-700 text-white px-4 py-1.5 rounded-md transition-colors"
               >
                 Get started
               </Link>

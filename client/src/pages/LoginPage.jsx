@@ -33,16 +33,16 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen t-bg flex">
       {/* Left panel */}
-      <div className="hidden lg:flex flex-col justify-between w-[42%] bg-[#111111] p-12">
+      <div className="hidden lg:flex flex-col justify-between w-[42%] bg-[#08090a] p-12">
         <Link to="/" className="text-[15px] font-bold text-white tracking-tight">
           Food<span className="text-orange-500">Index</span>
         </Link>
         <div>
           <p className="text-4xl font-black text-white leading-tight tracking-tight mb-4">
-            Food rescue,<br />done right.
+            Baked fresh.<br />Priced smart.
           </p>
           <p className="text-[#666] text-sm leading-relaxed">
-            Prices that drop in real time.<br />Surplus food that finds a home.
+            Prices that drop as closing time nears.<br />End-of-day baked goods that find a home.
           </p>
         </div>
         <p className="text-[#333] text-xs">MACSE640 · Full Stack Development</p>
@@ -76,7 +76,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-full font-medium text-sm transition-colors disabled:opacity-50 mt-1"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-md font-medium text-sm transition-colors disabled:opacity-50 mt-1"
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>

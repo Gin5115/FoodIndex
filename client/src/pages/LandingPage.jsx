@@ -5,9 +5,9 @@ import api from '../lib/api'
 import FoodCard from '../components/FoodCard'
 
 const TICKER_ITEMS = [
-  'Croissants', 'Biryani Box', 'Cold Brew', 'Sourdough', 'Thali',
-  'Avocado Toast', 'Trail Mix', 'Cinnamon Danish', 'Noodle Bowl',
-  'Cupcakes', 'Sandwiches', 'Cheesecake', 'Wraps', 'Donuts',
+  'Croissants', 'Sourdough', 'Cold Brew', 'Cinnamon Danish', 'Banana Bread',
+  'Trail Mix', 'Berry Tarts', 'Cardamom Buns', 'Focaccia',
+  'Butter Loaf', 'Almond Pastry', 'Cheese Scone', 'Rye Bread', 'Kouign-Amann',
 ]
 
 const PRICING_FACTORS = [
@@ -47,20 +47,20 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg t-text-3 max-w-xl leading-relaxed mb-10">
-            Restaurants near you list surplus food at prices that drop automatically
-            as pickup time approaches. You save. They cut waste.
+            Bakeries and cafes near you list end-of-day surplus at prices that drop
+            automatically as pickup time approaches. You save. They cut waste.
           </p>
 
           <div className="flex gap-3 flex-wrap">
             <Link
               to="/marketplace"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-medium text-sm transition-colors"
+              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-medium text-sm transition-colors"
             >
               Browse deals <ArrowRight size={15} />
             </Link>
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 t-card t-text-2 px-6 py-3 rounded-full font-medium text-sm transition-colors shadow-card hover:shadow-raised border border-[var(--border)]"
+              className="inline-flex items-center gap-2 surface t-text-2 px-6 py-3 rounded-md font-medium text-sm transition-colors hover:shadow-raised"
             >
               List your food
             </Link>
@@ -75,7 +75,7 @@ export default function LandingPage() {
             { value: '0', label: 'Food wasted' },
           ].map(({ value, label }) => (
             <div key={label}>
-              <p className="text-3xl font-black t-text-1 tracking-tight">{value}</p>
+              <p className="mono text-3xl font-black t-text-1 tracking-tight">{value}</p>
               <p className="text-sm t-text-4 mt-0.5">{label}</p>
             </div>
           ))}
@@ -102,15 +102,15 @@ export default function LandingPage() {
               From listing to<br />pickup in minutes
             </h2>
             <p className="t-text-3 leading-relaxed">
-              Sellers list surplus. Prices adjust in real time. You order and collect.
+              Bakeries list end-of-day surplus. Prices adjust in real time. You order and collect.
               No subscriptions. No fees.
             </p>
           </div>
           <ol className="space-y-8">
             {[
-              { icon: MapPin, title: 'Find nearby food', desc: 'Discover surplus meals and pastries from restaurants and cafes around you.' },
+              { icon: MapPin, title: 'Find nearby bakes', desc: 'Discover end-of-day breads, pastries and drinks from bakeries and cafes near you.' },
               { icon: TrendingDown, title: 'Watch prices drop', desc: 'Our algorithm adjusts prices live as pickup time approaches. Later = cheaper.' },
-              { icon: ShoppingBag, title: 'Order and collect', desc: 'Pay online, collect in store. Food rescued, money saved, waste eliminated.' },
+              { icon: ShoppingBag, title: 'Order and collect', desc: 'Pay online, collect in store. Good bread rescued, money saved, waste cut.' },
             ].map((step, i) => (
               <li key={i} className="flex gap-5">
                 <span className="text-4xl font-black text-[var(--border)] tabular-nums leading-none mt-0.5">
@@ -127,7 +127,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── Pricing section — always dark ── */}
-      <section className="bg-[#111111] py-24 px-5">
+      <section className="bg-[#08090a] py-24 px-5">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
             <p className="text-xs font-semibold text-orange-500 uppercase tracking-[0.1em] mb-4">
@@ -159,15 +159,15 @@ export default function LandingPage() {
           </div>
 
           {/* Price timeline */}
-          <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A]">
+          <div className="bg-[#0e0f11] rounded-lg p-6 border border-[rgba(255,255,255,0.07)]">
             <p className="text-xs text-[#555] uppercase tracking-widest mb-1">Example</p>
             <p className="text-sm font-medium text-white mb-6">Sourdough Loaf — Original ₹200</p>
             <div className="space-y-2">
               {PRICE_TIMELINE.map((row, i) => (
                 <div
                   key={i}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 transition-colors ${
-                    row.active ? 'bg-orange-600' : 'bg-[#222]'
+                  className={`flex items-center justify-between rounded-md px-4 py-3 transition-colors ${
+                    row.active ? 'bg-orange-600' : 'bg-[rgba(255,255,255,0.04)]'
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -177,7 +177,7 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <div className="flex items-baseline gap-2">
-                    <span className={`font-bold ${row.active ? 'text-white text-lg' : 'text-[#555]'}`}>
+                    <span className={`mono font-bold ${row.active ? 'text-white text-lg' : 'text-[#555]'}`}>
                       ₹{row.price}
                     </span>
                     {row.active && (
@@ -231,13 +231,13 @@ export default function LandingPage() {
           <div className="flex gap-3 shrink-0">
             <Link
               to="/register"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-medium text-sm transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-medium text-sm transition-colors whitespace-nowrap"
             >
               Get started free
             </Link>
             <Link
               to="/marketplace"
-              className="inline-flex items-center gap-2 t-card border border-[var(--border)] t-text-2 px-6 py-3 rounded-full font-medium text-sm transition-colors shadow-card hover:shadow-raised whitespace-nowrap"
+              className="inline-flex items-center gap-2 surface t-text-2 px-6 py-3 rounded-md font-medium text-sm transition-colors hover:shadow-raised whitespace-nowrap"
             >
               Browse deals
             </Link>

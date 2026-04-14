@@ -4,7 +4,7 @@ import { Search, SlidersHorizontal, X, MapPin, Loader2 } from 'lucide-react'
 import api from '../lib/api'
 import FoodCard from '../components/FoodCard'
 
-const CATEGORIES = ['all', 'meal', 'bread', 'pastry', 'drink', 'snack', 'other']
+const CATEGORIES = ['all', 'bread', 'pastry', 'drink', 'snack', 'other']
 const SORT_OPTIONS = [
   { value: 'expiry', label: 'Ending soon' },
   { value: 'discount', label: 'Biggest discount' },
@@ -105,7 +105,7 @@ export default function MarketplacePage() {
                   placeholder="Search for food..."
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
-                  className="w-full border border-[var(--border)] t-card rounded-lg pl-10 pr-4 py-2 text-sm t-text-1 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500/50 placeholder:t-text-4 transition-colors"
+                  className="w-full border border-[var(--border)] t-card rounded-md pl-10 pr-4 py-2 text-sm t-text-1 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500/50 placeholder:t-text-4 transition-colors"
                 />
                 {searchInput && (
                   <button type="button" onClick={clearSearch} className="absolute right-3 top-1/2 -translate-y-1/2 t-text-4 hover:t-text-2">
@@ -113,7 +113,7 @@ export default function MarketplacePage() {
                   </button>
                 )}
               </div>
-              <button type="submit" className="flex items-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+              <button type="submit" className="flex items-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
                 <SlidersHorizontal size={13} /> Search
               </button>
             </form>
@@ -125,7 +125,7 @@ export default function MarketplacePage() {
               className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border transition-all ${
                 location
                   ? 'bg-orange-600 border-orange-600 text-white'
-                  : 't-card border-[var(--border)] t-text-2 hover:border-orange-500/40 hover:text-orange-600'
+                  : 'surface t-text-2 hover:border-orange-500/40 hover:text-orange-600'
               }`}
             >
               {locating ? <Loader2 size={13} className="animate-spin" /> : <MapPin size={13} />}
@@ -152,10 +152,10 @@ export default function MarketplacePage() {
               <button
                 key={c}
                 onClick={() => setCategory(c)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium capitalize transition-all ${
+                className={`px-3.5 py-1.5 rounded-md text-xs font-medium capitalize transition-all ${
                   category === c
                     ? 'bg-orange-600 text-white'
-                    : 't-card t-text-3 border border-[var(--border)] hover:t-text-1 hover:border-[var(--border-md)]'
+                    : 'surface t-text-3 hover:t-text-1 hover:border-[var(--border-md)]'
                 }`}
               >
                 {c}
@@ -168,7 +168,7 @@ export default function MarketplacePage() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="border border-[var(--border)] t-card rounded-lg px-3 py-1.5 text-xs t-text-2 focus:outline-none cursor-pointer"
+              className="border border-[var(--border)] t-card rounded-md px-3 py-1.5 text-xs t-text-2 focus:outline-none cursor-pointer"
             >
               {SORT_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>{o.label}</option>
@@ -191,7 +191,7 @@ export default function MarketplacePage() {
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {[...Array(8)].map((_, i) => (
-              <div key={i} className="t-muted rounded-xl h-64 animate-pulse" />
+              <div key={i} className="t-muted rounded-lg h-64 animate-pulse" />
             ))}
           </div>
         ) : isError ? (

@@ -4,7 +4,7 @@ import { MapPin, Phone, Store } from 'lucide-react'
 import api from '../lib/api'
 import FoodCard from '../components/FoodCard'
 
-const TYPE_LABEL = { restaurant: 'Restaurant', cafe: 'Café', bakery: 'Bakery', other: 'Food Store' }
+const TYPE_LABEL = { bakery: 'Bakery', cafe: 'Café', other: 'Food Store' }
 
 export default function SellerProfilePage() {
   const { id } = useParams()
