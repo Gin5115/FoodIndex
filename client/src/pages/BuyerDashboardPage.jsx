@@ -28,7 +28,7 @@ export default function BuyerDashboardPage() {
           <h1 className="text-3xl font-black t-text-1 tracking-tight">
             Hey, {user?.name?.split(' ')[0]}
           </h1>
-          <p className="t-text-4 mt-1 text-sm">Your food rescue history</p>
+          <p className="t-text-4 mt-1 text-sm">Your order history</p>
         </div>
 
         {/* Stats */}

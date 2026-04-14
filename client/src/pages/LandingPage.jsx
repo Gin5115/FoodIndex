@@ -5,9 +5,9 @@ import api from '../lib/api'
 import FoodCard from '../components/FoodCard'
 
 const TICKER_ITEMS = [
-  'Croissants', 'Biryani Box', 'Cold Brew', 'Sourdough', 'Thali',
-  'Avocado Toast', 'Trail Mix', 'Cinnamon Danish', 'Noodle Bowl',
-  'Cupcakes', 'Sandwiches', 'Cheesecake', 'Wraps', 'Donuts',
+  'Croissants', 'Sourdough', 'Cold Brew', 'Cinnamon Danish', 'Banana Bread',
+  'Trail Mix', 'Berry Tarts', 'Cardamom Buns', 'Focaccia',
+  'Butter Loaf', 'Almond Pastry', 'Cheese Scone', 'Rye Bread', 'Kouign-Amann',
 ]
 
 const PRICING_FACTORS = [
@@ -47,8 +47,8 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-lg t-text-3 max-w-xl leading-relaxed mb-10">
-            Restaurants near you list surplus food at prices that drop automatically
-            as pickup time approaches. You save. They cut waste.
+            Bakeries and cafes near you list end-of-day surplus at prices that drop
+            automatically as pickup time approaches. You save. They cut waste.
           </p>
 
           <div className="flex gap-3 flex-wrap">
@@ -102,15 +102,15 @@ export default function LandingPage() {
               From listing to<br />pickup in minutes
             </h2>
             <p className="t-text-3 leading-relaxed">
-              Sellers list surplus. Prices adjust in real time. You order and collect.
+              Bakeries list end-of-day surplus. Prices adjust in real time. You order and collect.
               No subscriptions. No fees.
             </p>
           </div>
           <ol className="space-y-8">
             {[
-              { icon: MapPin, title: 'Find nearby food', desc: 'Discover surplus meals and pastries from restaurants and cafes around you.' },
+              { icon: MapPin, title: 'Find nearby bakes', desc: 'Discover end-of-day breads, pastries and drinks from bakeries and cafes near you.' },
               { icon: TrendingDown, title: 'Watch prices drop', desc: 'Our algorithm adjusts prices live as pickup time approaches. Later = cheaper.' },
-              { icon: ShoppingBag, title: 'Order and collect', desc: 'Pay online, collect in store. Food rescued, money saved, waste eliminated.' },
+              { icon: ShoppingBag, title: 'Order and collect', desc: 'Pay online, collect in store. Good bread rescued, money saved, waste cut.' },
             ].map((step, i) => (
               <li key={i} className="flex gap-5">
                 <span className="text-4xl font-black text-[var(--border)] tabular-nums leading-none mt-0.5">

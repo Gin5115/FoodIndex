@@ -19,7 +19,7 @@ export default function RegisterPage() {
   const [isSeller, setIsSeller] = useState(false)
   const [form, setForm] = useState({
     name: '', email: '', password: '',
-    businessName: '', businessType: 'restaurant', businessAddress: '', phone: '',
+    businessName: '', businessType: 'bakery', businessAddress: '', phone: '',
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -50,10 +50,10 @@ export default function RegisterPage() {
         </Link>
         <div>
           <p className="text-4xl font-black text-white leading-tight tracking-tight mb-4">
-            Join the<br />food rescue.
+            Join the<br />bakery rescue.
           </p>
           <p className="text-[#666] text-sm leading-relaxed">
-            Whether you're buying discounted meals or listing surplus food — FoodIndex connects you.
+            Whether you're buying end-of-day baked goods or listing surplus from your bakery — FoodIndex connects you.
           </p>
         </div>
         <p className="text-[#333] text-xs">MACSE640 · Full Stack Development</p>
@@ -115,7 +115,7 @@ export default function RegisterPage() {
                     onChange={handleChange}
                     className={inputCls}
                   >
-                    {['restaurant', 'cafe', 'bakery', 'other'].map((t) => (
+                    {['bakery', 'cafe', 'other'].map((t) => (
                       <option key={t} value={t} className="capitalize">{t.charAt(0).toUpperCase() + t.slice(1)}</option>
                     ))}
                   </select>

@@ -12,7 +12,7 @@ const STATUS_STYLES = {
 }
 
 const EMPTY_FORM = {
-  name: '', description: '', category: 'meal',
+  name: '', description: '', category: 'bread',
   originalPrice: '', stock: '', pickupTime: '', image: '',
 }
 

@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
     businessName: { type: String },
     businessType: {
       type: String,
-      enum: ['restaurant', 'cafe', 'bakery', 'other'],
+      enum: ['bakery', 'cafe', 'other'],
     },
     businessAddress: { type: String },
     phone: { type: String },

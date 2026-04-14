@@ -39,10 +39,10 @@ export default function LoginPage() {
         </Link>
         <div>
           <p className="text-4xl font-black text-white leading-tight tracking-tight mb-4">
-            Food rescue,<br />done right.
+            Baked fresh.<br />Priced smart.
           </p>
           <p className="text-[#666] text-sm leading-relaxed">
-            Prices that drop in real time.<br />Surplus food that finds a home.
+            Prices that drop as closing time nears.<br />End-of-day baked goods that find a home.
           </p>
         </div>
         <p className="text-[#333] text-xs">MACSE640 · Full Stack Development</p>
